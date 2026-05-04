@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
+import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "AllagiX - международные платежи для бизнеса",
@@ -13,19 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="js">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800;12..96,900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="ru" className={`js ${bricolage.variable}`}>
       <body>{children}</body>
     </html>
   );
